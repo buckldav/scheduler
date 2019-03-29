@@ -1,22 +1,23 @@
-/**
+package model;
+ /**
  * Course
  */
 public class Course implements Comparable {
 
     private String name;
-    private int capacity;
     private int room;
+    private String period;
 
-    public Course(String name, int room, int capacity) {
+    public Course(String name, int room, String period) {
         setName(name);
-        setCapacity(capacity);
         setRoom(room);
+        setPeriod(period);
     }
 
     public Course(String name, int room) {
         setName(name);
-        setCapacity(0);
         setRoom(room);
+        period = null;
     }
 
 
@@ -27,22 +28,16 @@ public class Course implements Comparable {
         return name;
     }
     /**
-     * @return the capacity
-     */
-    public int getCapacity() {
-        return capacity;
-    }
-    /**
      * @return the room
      */
     public int getRoom() {
         return room;
     }
     /**
-     * @param capacity the capacity to set
+     * @return the period
      */
-    public void setCapacity(int capacity) {
-        this.capacity = capacity;
+    public String getPeriod() {
+        return period;
     }
     /**
      * @param name the name to set
@@ -55,6 +50,18 @@ public class Course implements Comparable {
      */
     public void setRoom(int room) {
         this.room = room;
+    }
+    /**
+     * @param period the period to set
+     */
+    public void setPeriod(String period) {
+        for (String p : Period.PERIODS) {
+            if (p.equals(period)) {
+                this.period = period;
+                return;
+            }
+        }
+        this.period = null;    
     }
 
     @Override
@@ -84,6 +91,4 @@ public class Course implements Comparable {
     public String toString() {
         return room + " " + name;
     }
-
-
 }

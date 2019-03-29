@@ -10,6 +10,7 @@ public class Main {
 
     public static void main(String[] args) {
         TreeSet<Course> courses = new TreeSet<Course>();
+        // TODO: Map of room number keys to capacity values
         
         courses.add(new Course("Jazz Band", 213));
         courses.add(new Course("Orchestra", 213));
